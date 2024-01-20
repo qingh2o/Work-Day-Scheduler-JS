@@ -13,11 +13,11 @@ function colorCodeHours() {
         console.log(idHourValue);
 
         if (idHourValue < currentTime) {
-            $('.description').addClass('past');
+            $('.description').addClass('past text-dark');
         } else if (idHourValue === currentTime) {
-            $('.description').addClass('present');
+            $('.description').addClass('present text-dark');
         } else {
-            $('.description').addClass('future');
+            $('.description').addClass('future text-dark');
         }
     });
     console.log(currentTime);
