@@ -1,26 +1,30 @@
 // Display current day
-var currentDay = dayjs().format('dddd, MMMM YY');
+var currentDay = dayjs().format('dddd, MMMM D');
 $('#currentDay').text(currentDay);
+console.log('currentDay: '+ currentDay);
 
 //Color-code each timeblock based on past, present, and future 
 function colorCodeHours() {
     var currentTime = dayjs().hour();
 
-    $(".hour ").each(function () {
+    $(".time-block").each(function () {
         var idValue = $(this).attr("id");
 
         var idHourValue = parseInt(idValue.split("-")[1]);
         console.log(idHourValue);
 
         if (idHourValue < currentTime) {
-            $('.description').addClass('past text-dark');
+            $(this).addClass('past');
         } else if (idHourValue === currentTime) {
-            $('.description').addClass('present text-dark');
+            $(this).removeClass('past');
+            $(this).addClass('present');
         } else {
-            $('.description').addClass('future text-dark');
+            $(this).removeClass('past');
+            $(this).removeClass('present');
+            $(this).addClass('future');
         }
     });
-    console.log(currentTime);
+    console.log('currentTime: '+ currentTime);
 };
 colorCodeHours();
 
