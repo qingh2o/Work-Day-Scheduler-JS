@@ -31,13 +31,20 @@ function colorCodeHours() {
 };
 
 colorCodeHours();
+var hourlySchedule = "";
 
-//Save each input schedule individually in local storage. 
+//Save each input schedule individually in localStorage. 
 $(".saveBtn").click(function (event) {
     event.preventDefault();
-    var hourlySchedule = $(this).siblings().next().val();
+    hourlySchedule = $(this).siblings().next().val();
     var timeKey = $(this).siblings().text();
-    localStorage.setItem(timeKey, hourlySchedule);
+
+    //Check the input is vaild before save to localStorage.
+    if (!hourlySchedule) {
+        return;
+    } else {
+        localStorage.setItem(timeKey, hourlySchedule);
+    };   
 });
 
 
