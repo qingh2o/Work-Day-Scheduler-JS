@@ -1,15 +1,18 @@
 // Display current day
 var currentDay = dayjs().format('dddd, MMMM D');
 $('#currentDay').text(currentDay);
-console.log('currentDay: '+ currentDay);
+console.log('currentDay: ' + currentDay);
+
+var timeblock = $(".time-block");
+var userInput = $(".description");
+
 
 //Color-code each timeblock based on past, present, and future 
 function colorCodeHours() {
     var currentTime = dayjs().hour();
 
-    $(".time-block").each(function () {
+    timeblock.each(function () {
         var idValue = $(this).attr("id");
-
         var idHourValue = parseInt(idValue.split("-")[1]);
         console.log(idHourValue);
 
@@ -26,5 +29,17 @@ function colorCodeHours() {
     });
     console.log('currentTime: '+ currentTime);
 };
+
 colorCodeHours();
+
+//Save each input schedule individually in local storage. 
+$(".saveBtn").click(function (event) {
+    event.preventDefault();
+    var hourlySchedule = $(this).siblings().next().val();
+    var timeKey = $(this).siblings().text();
+    localStorage.setItem(timeKey, hourlySchedule);
+});
+
+
+
 
