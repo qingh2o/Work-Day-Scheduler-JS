@@ -1,9 +1,9 @@
 $(document).ready(function () {
     //Display current day
     var currentDay = dayjs().format('dddd, MMMM D');
-    $('#currentDay').text(currentDay); 
+    $('#currentDay').text(currentDay);
 
-     // Retrieve saved current day from localStorage
+    // Retrieve saved current day from localStorage
     var savedCurrentDay = localStorage.getItem('savedCurrentDay');
 
     var timeblock = $(".time-block");
@@ -11,8 +11,7 @@ $(document).ready(function () {
     //Color-code each timeblock 
     function colorCodeHours() {
         var currentTime = dayjs().hour();
-        $('#feedback').text("Add your event below!")
-        
+
         timeblock.each(function () {
             var idValue = $(this).attr("id");
             var idHourValue = parseInt(idValue.split("-")[1]);
@@ -28,8 +27,7 @@ $(document).ready(function () {
 
                 //Color-code for future hour
             } else {
-                $(this).removeClass('past');
-                $(this).removeClass('present');
+                $(this).removeClass('past present');
                 $(this).addClass('future');
             }
         });
@@ -39,8 +37,7 @@ $(document).ready(function () {
     colorCodeHours();
 
     //Save each input schedule individually in localStorage. 
-    $(".saveBtn").click(function (event) {
-        event.preventDefault();
+    $(".saveBtn").on('click', function () {
 
         //User input hourly Schedule
         var hourlyScheduleInput = $(this).parent().find('.description').val();
@@ -50,9 +47,10 @@ $(document).ready(function () {
         if (!hourlyScheduleInput) {
             return;
         } else {
-            localStorage.setItem(timeKeyOfInput, hourlyScheduleInput);
-            $('#feedback').text("Event added to LocalStorage!")
             localStorage.setItem('savedCurrentDay', currentDay);
+            localStorage.setItem(timeKeyOfInput, hourlyScheduleInput);
+            //Use Toastr for notification
+            toastr.success("Event added to Local storage!");
         };
     });
 
@@ -64,7 +62,7 @@ $(document).ready(function () {
 
             //Get Vaue
             var hourlySchedule = localStorage.getItem(timeKey);
- 
+
             //Display on the page
             $(this).find('.description').val(hourlySchedule);
         });
@@ -80,9 +78,6 @@ $(document).ready(function () {
     function NewDayReset() {
         //Clear page input
         $("textarea").val('');
-        //Clear the storage 
-        localStorage.clear();
-
     }
 
 });
