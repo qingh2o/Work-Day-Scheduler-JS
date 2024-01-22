@@ -31,17 +31,17 @@ The application should look similar to the screenshot below.
 
 ### Display key feature
 
-* Display future time block when a new day starts
-
-![Page With New Day Screenshot](./screenshots/start_a_day.png)
-
 * Display notification after the user clicks the save button.
 
 ![Page With Notification Screenshot](./screenshots/event_notification.png)
 
-* Display events on the page after the user reloads the page.
+* Display events on the page when the user loads the page at different times of the day.
 
 ![Refreshing Page Screenshot](./screenshots/refreshes_page.png)
+
+* Display empty time blocks when a new day starts
+
+![Page With New Day Screenshot](./screenshots/start_a_day.png)
 
 ### Inspect page using Chrome DevTools
 Open Chrome DevTools by right-clicking the page and selecting "Inspect". An Elements panel should open either below or to the side of the webpage in the browser. Click the Applications tab and expand Local Storage in the Storage section to see saved events displayed on the right.
