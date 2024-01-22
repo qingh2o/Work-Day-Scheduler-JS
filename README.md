@@ -21,7 +21,7 @@ N/A
 ## Usage 
 
 To use Work-Day-Scheduler-JS,  you can review each file. 
-To check whether the application meets critical requirements, open the webpage [Work Day Scheduler](https://qingh2o.github.io/ Work-Day-Scheduler-JS/). 
+To check whether the application meets critical requirements, open the webpage [Work Day Scheduler](https://qingh2o.github.io/Work-Day-Scheduler-JS/). 
 
 Once the Work-Day-Scheduler-JS web page loads, the color code is grey for the past, red for the present, and green for the future. Page display depends on when you load the page.
 
@@ -39,6 +39,9 @@ The application should look similar to the screenshot below.
 
 ![Page With Notification Screenshot](./screenshots/event_notification.png)
 
+* Display events on the page after the user reloads the page.
+
+![Refreshing Page Screenshot](./screenshots/refreshes_page.png)
 
 ### Inspect page using Chrome DevTools
 Open Chrome DevTools by right-clicking the page and selecting "Inspect". An Elements panel should open either below or to the side of the webpage in the browser. Click the Applications tab and expand Local Storage in the Storage section to see saved events displayed on the right.
